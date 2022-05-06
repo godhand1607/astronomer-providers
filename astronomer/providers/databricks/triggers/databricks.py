@@ -6,7 +6,20 @@ from airflow.triggers.base import BaseTrigger, TriggerEvent
 from astronomer.providers.databricks.hooks.databricks import DatabricksHookAsync
 
 
-class DatabricksTrigger(BaseTrigger):  # noqa: D101
+class DatabricksTrigger(BaseTrigger):
+    """
+    Wait asynchronously for databricks job to reach the terminal state.
+
+    :param conn_id:
+    :param task_id:
+    :param run_id:
+    :param retry_limit:
+    :param retry_delay:
+    :param polling_period_seconds:
+    :param job_id:
+    :param run_page_url:
+    """
+
     def __init__(
         self,
         conn_id: str,
