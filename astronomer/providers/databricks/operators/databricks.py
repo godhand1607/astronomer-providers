@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class DatabricksSubmitRunOperatorAsync(DatabricksSubmitRunOperator):
     """
-    Submits a Spark job run to Databricks using the
+    Submits a Spark job run asynchronously to Databricks using the
     `api/2.1/jobs/runs/submit
     <https://docs.databricks.com/dev-tools/api/latest/jobs.html#operation/JobsRunsSubmit>`_
     API endpoint.
@@ -137,18 +137,18 @@ class DatabricksSubmitRunOperatorAsync(DatabricksSubmitRunOperator):
         ..seealso::
             https://docs.databricks.com/dev-tools/api/2.0/jobs.html#managedlibrarieslibrary
     :param run_name: The run name used for this task.
-        By default this will be set to the Airflow ``task_id``. This ``task_id`` is a
+        By default, this will be set to the Airflow ``task_id``. This ``task_id`` is a
         required parameter of the superclass ``BaseOperator``.
         This field will be templated.
     :param timeout_seconds: The timeout for this run. By default a value of 0 is used
         which means to have no timeout.
         This field will be templated.
-    :param databricks_conn_id: Reference to the :ref:`Databricks connection <howto/connection:databricks>`.
-        By default and in the common case this will be ``databricks_default``. To use
+    :param databricks_conn_id: The databricks connection id.
+        The default value is ``databricks_default``. To use
         token based authentication, provide the key ``token`` in the extra field for the
         connection and create the key ``host`` and leave the ``host`` field empty.
     :param polling_period_seconds: Controls the rate which we poll for the result of
-        this run. By default the operator will poll every 30 seconds.
+        this run. By default, the operator will poll every 30 seconds.
     :param databricks_retry_limit: Amount of times retry if the Databricks backend is
         unreachable. Its value must be greater than or equal to 1.
     :param databricks_retry_delay: Number of seconds to wait between retries (it
@@ -213,7 +213,7 @@ class DatabricksSubmitRunOperatorAsync(DatabricksSubmitRunOperator):
 
 class DatabricksRunNowOperatorAsync(DatabricksRunNowOperator):
     """
-    Runs an existing Spark job run to Databricks using the
+    Runs an existing Spark job run asynchronously to Databricks using the
     `api/2.1/jobs/run-now
     <https://docs.databricks.com/dev-tools/api/latest/jobs.html#operation/JobsRunNow>`_
     API endpoint.

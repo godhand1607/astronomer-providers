@@ -17,8 +17,7 @@ class KubernetesHookAsync(KubernetesHook):
     This hook check for configuration option in the above order. Once an option is present it will
     use this configuration.
 
-    :param conn_id: The :ref:`kubernetes connection <howto/connection:kubernetes>`
-        to Kubernetes cluster.
+    :param conn_id: The connection id
     """
 
     async def _load_config(self) -> client.ApiClient:

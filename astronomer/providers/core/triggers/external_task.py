@@ -90,9 +90,9 @@ class DagStateTrigger(BaseTrigger):
     :param task_id: The task_id that contains the task you want to
         wait for. If ``None`` (default value) the sensor waits for the DAG
     :param states: allowed states, default is ``['success']``
-    :param execution_dates:
+    :param execution_dates: The logical date at which DAG run.
     :param poll_interval: The time interval in seconds to check the state.
-        The default value is 5 sec.
+        The default value is 5.0 sec.
     """
 
     def __init__(
